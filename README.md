@@ -1,12 +1,12 @@
 # Agent Projects
 
-Building toward an autonomous AI agent that reads theology and politics, forms its own ideologies, and posts them to Instagram (this feature might not apply since its not cost effective but the code should work once paid for)
+Building toward an autonomous AI agent that reads theology and politics, forms its own ideologies, and posts them to Instagram.
 
 This repo documents the build — each mini project teaches one core skill.
 
 ---
 
-## Mini Project 1 — News Fetcher Agent
+##  Project 1 — News Fetcher Agent
 `NewsFetcherAgent/`
 
 Pulls articles from theology and politics sources via RSS feeds and NewsAPI. Cleans the text and stores everything in a local SQLite database on a timed schedule.
@@ -20,7 +20,7 @@ python main.py --view    # see what was stored
 
 ---
 
-## Mini Project 2 — Tagger Agent
+##  Project 2 — Tagger Agent
 `TaggerAgent/`
 
 Reads the stored articles and sends them to Claude to extract themes, ideological lean, theological tradition, and emotional tone. Writes the results back into the same database.
@@ -36,11 +36,27 @@ python main.py --view    # inspect results
 
 ---
 
+## Project 3 — Memory Agent
+`MemoryAgent/`
+
+Converts tagged articles into vector embeddings and stores them in a local Chroma database. Enables semantic search — find relevant articles by concept rather than keyword. Also maintains a separate collection for the agent's own generated thoughts, ready for the Synthesis Agent.
+
+```bash
+cd MemoryAgent
+source venv/bin/activate
+python main.py           # index all tagged articles into Chroma
+python main.py --search  # interactive semantic search
+python main.py --stats   # see how many vectors are stored
+```
+
+> Run TaggerAgent first to populate tagged articles.
+
+---
+
 ## Coming Next
 
 | # | Project | Skill |
 |---|---------|-------|
-| 3 | Memory Agent | Vector databases + semantic search |
-| 4 | Synthesis Agent | Multi-step LLM chaining + persona |
+| 4 | Synthesis Agent | Multi-step LLM chaining + persona engineering |
 | 5 | Image Pipeline | Image generation + visual templating |
 | 6 | Publisher | Streamlit dashboard + Instagram API |
