@@ -4,6 +4,8 @@ Building toward an autonomous AI agent that reads theology and politics, forms i
 
 This repo documents the build — each mini project teaches one core skill.
 
+NOTICE : This code has yet not been tested due to lack of financing.
+
 ---
 
 ##  Project 1 — News Fetcher Agent
